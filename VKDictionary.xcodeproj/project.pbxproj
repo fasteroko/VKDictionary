@@ -14,6 +14,7 @@
 		87EB900F1D479237001E4F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87EB900E1D479237001E4F1F /* Assets.xcassets */; };
 		87EB90121D479237001E4F1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87EB90101D479237001E4F1F /* LaunchScreen.storyboard */; };
 		87EB901D1D479237001E4F1F /* VKDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB901C1D479237001E4F1F /* VKDictionaryTests.m */; };
+		87EB90291D4792B0001E4F1F /* VKDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB90281D4792B0001E4F1F /* VKDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		87EB90181D479237001E4F1F /* VKDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EB901C1D479237001E4F1F /* VKDictionaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKDictionaryTests.m; sourceTree = "<group>"; };
 		87EB901E1D479237001E4F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87EB90271D4792B0001E4F1F /* VKDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDictionary.h; sourceTree = "<group>"; };
+		87EB90281D4792B0001E4F1F /* VKDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				87EB90061D479237001E4F1F /* AppDelegate.m */,
 				87EB90081D479237001E4F1F /* ViewController.h */,
 				87EB90091D479237001E4F1F /* ViewController.m */,
+				87EB90271D4792B0001E4F1F /* VKDictionary.h */,
+				87EB90281D4792B0001E4F1F /* VKDictionary.m */,
 				87EB900B1D479237001E4F1F /* Main.storyboard */,
 				87EB900E1D479237001E4F1F /* Assets.xcassets */,
 				87EB90101D479237001E4F1F /* LaunchScreen.storyboard */,
@@ -211,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87EB90291D4792B0001E4F1F /* VKDictionary.m in Sources */,
 				87EB900A1D479237001E4F1F /* ViewController.m in Sources */,
 				87EB90071D479237001E4F1F /* AppDelegate.m in Sources */,
 				87EB90041D479237001E4F1F /* main.m in Sources */,

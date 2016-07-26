@@ -2,17 +2,18 @@
 //  VKDictionaryTests.m
 //  VKDictionaryTests
 //
-//  Created by Vladyslav on 7/26/16.
-//  Copyright © 2016 Vladyslav Korneyev. All rights reserved.
+//  Created by Vladyslav Korneyev on 12/14/15.
+//  Copyright © 2015 Vladyslav Korneyev. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "VKDictionary.h"
 
-@interface VKDictionaryTests : XCTestCase
+@interface DictionaryTests : XCTestCase
 
 @end
 
-@implementation VKDictionaryTests
+@implementation DictionaryTests
 
 - (void)setUp {
     [super setUp];
@@ -24,16 +25,100 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testSetObjectForKey{
+    VKDictionary *dict = [VKDictionary new];
+    
+    [dict setObject:@"Jack" forKey:@(11)];
+    [dict setObject:@"Jill" forKey:@(15)];
+    [dict setObject:@(20) forKey:@"Age"];
+    [dict setObject:@(170) forKey:@"Height"];
+    
+    XCTAssertTrue([[dict objectForKey:@(11)] isEqualToString:@"Jack"]);
+    XCTAssertNil([dict objectForKey:@"bla bla bla"]);
+    
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testRemoveAllObjects {
+    VKDictionary *dict = [VKDictionary new];
+    
+    [dict setObject:@"Jack" forKey:@(11)];
+    [dict setObject:@"Jill" forKey:@(15)];
+    [dict setObject:@(20) forKey:@"Age"];
+    [dict setObject:@(170) forKey:@"Height"];
+    
+    [dict removeAllObjects];
+    
+    XCTAssertNil([dict objectForKey:@"Age"]);
+}
+
+- (void)testRemoveObjectForKey {
+    VKDictionary *dict = [VKDictionary new];
+    
+    [dict setObject:@"Jack" forKey:@(11)];
+    [dict setObject:@"Jill" forKey:@(15)];
+    [dict setObject:@(20) forKey:@"Age"];
+    [dict setObject:@(170) forKey:@"Height"];
+    
+    [dict removeObjectForKey:@"Height"];
+    
+    XCTAssertNil([dict objectForKey:@"Height"]);
+}
+
+- (void)testCount {
+    VKDictionary *dict = [VKDictionary new];
+    
+    [dict setObject:@"Jack" forKey:@(11)];
+    [dict setObject:@"Jill" forKey:@(15)];
+    [dict setObject:@(20) forKey:@"Age"];
+    [dict setObject:@(170) forKey:@"Height"];
+    
+    XCTAssertEqual([dict count], 4);
+}
+
+- (void)testObjectForKey{
+    VKDictionary *dict = [VKDictionary new];
+    
+    [dict setObject:@"Jack" forKey:@(11)];
+    [dict setObject:@"Jill" forKey:@(15)];
+    [dict setObject:@(20) forKey:@"Age"];
+    [dict setObject:@(170) forKey:@"Height"];
+    
+    XCTAssertEqual([dict objectForKey:@"Age"], @20);
+    
+}
+
+- (void)testObjectsForKeys{
+    VKDictionary *dict = [[VKDictionary alloc] init];
+    
+    [dict setObject:@"Jack" forKey:@"One"];
+    [dict setObject:@"Jill" forKey:@"Two"];
+    [dict setObject:@"Bill" forKey:@"Three"];
+    [dict setObject:@"Alex" forKey:@"Four"];
+    [dict setObject:@"Vlad" forKey:@"Five"];
+    [dict setObject:@"Max" forKey:@"Six"];
+    
+    NSArray *arr = [dict getAllKeys];
+    NSArray *array = [NSArray arrayWithObjects:
+                      @"One", @"Two", @"Three", @"Ten", @"Five", @"Six", nil];
+    
+    XCTAssertNotNil([dict objectsForKeys:arr]);
+    XCTAssertThrows([dict objectsForKeys:array]);
+}
+
+- (void)testGetAllKeys {
+    VKDictionary *dict = [[VKDictionary alloc] init];
+    
+    [dict setObject:@"Jack" forKey:@"One"];
+    [dict setObject:@"Jill" forKey:@"Two"];
+    [dict setObject:@"Bill" forKey:@"Three"];
+    [dict setObject:@"Alex" forKey:@"Four"];
+    [dict setObject:@"Vlad" forKey:@"Five"];
+    [dict setObject:@"Max" forKey:@"Six"];
+    
+    XCTAssertNotNil([dict getAllKeys]);
+    NSArray *array = [NSArray arrayWithObjects:
+                      @"One", @"Two", @"Three", @"Four", @"Five", @"Six", nil];
+    XCTAssertEqualObjects([dict getAllKeys],array);
 }
 
 @end
